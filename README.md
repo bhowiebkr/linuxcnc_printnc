@@ -1,4 +1,4 @@
-# LinuxCNC - PrintNC config files using a Meas 7i76e
+# LinuxCNC - PrintNC config files using a Mesa 7i76e
 
 ## Overview
 These are my settings for the LinuxCNC for the machine PrintNC. They are targeted to the Mesa 7i76e FPGA board but might be helpful for other Meas or parallel BOB boards. 
