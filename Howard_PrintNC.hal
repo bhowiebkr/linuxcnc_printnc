@@ -1,5 +1,4 @@
 loadusr -Wn pyvcp pyvcp -c pyvcp [DISPLAY](PYVCP)
-source postgui_call_list.hal
 loadrt [KINS]KINEMATICS
 loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS
 loadrt hostmot2
@@ -22,12 +21,6 @@ addf lowpass.spindle          servo-thread
 addf hm2_7i76e.0.write         servo-thread
 setp hm2_7i76e.0.dpll.01.timer-us -50
 setp hm2_7i76e.0.stepgen.timer-number 1
-
-# external output signals
-
-
-# external input signals
-
 
 #*******************
 #  AXIS X JOINT 0
@@ -52,7 +45,6 @@ net x-pos-fb        =>  pid.x.feedback
 net x-output        <=  pid.x.output
 
 # Step Gen signals/setup
-
 setp   hm2_7i76e.0.stepgen.00.dirsetup        [JOINT_0]DIRSETUP
 setp   hm2_7i76e.0.stepgen.00.dirhold         [JOINT_0]DIRHOLD
 setp   hm2_7i76e.0.stepgen.00.steplen         [JOINT_0]STEPLEN
@@ -64,7 +56,6 @@ setp   hm2_7i76e.0.stepgen.00.maxaccel         [JOINT_0]STEPGEN_MAXACCEL
 setp   hm2_7i76e.0.stepgen.00.maxvel           [JOINT_0]STEPGEN_MAXVEL
 
 # ---closedloop stepper signals---
-
 net x-pos-cmd    <= joint.0.motor-pos-cmd
 net x-vel-cmd    <= joint.0.vel-cmd
 net x-output     <= hm2_7i76e.0.stepgen.00.velocity-cmd
@@ -74,7 +65,6 @@ net x-enable     <= joint.0.amp-enable-out
 net x-enable     => hm2_7i76e.0.stepgen.00.enable
 
 # ---setup home / limit switch signals---
-
 net home-x     =>  joint.0.home-sw-in
 net x-neg-limit     =>  joint.0.neg-lim-sw-in
 net x-pos-limit     =>  joint.0.pos-lim-sw-in
@@ -102,7 +92,6 @@ net y1-pos-fb        =>  pid.y1.feedback
 net y1-output        <=  pid.y1.output
 
 # Step Gen signals/setup
-
 setp   hm2_7i76e.0.stepgen.01.dirsetup        [JOINT_1]DIRSETUP
 setp   hm2_7i76e.0.stepgen.01.dirhold         [JOINT_1]DIRHOLD
 setp   hm2_7i76e.0.stepgen.01.steplen         [JOINT_1]STEPLEN
@@ -114,7 +103,6 @@ setp   hm2_7i76e.0.stepgen.01.maxaccel         [JOINT_1]STEPGEN_MAXACCEL
 setp   hm2_7i76e.0.stepgen.01.maxvel           [JOINT_1]STEPGEN_MAXVEL
 
 # ---closedloop stepper signals---
-
 net y1-pos-cmd    <= joint.1.motor-pos-cmd
 net y1-vel-cmd    <= joint.1.vel-cmd
 net y1-output     <= hm2_7i76e.0.stepgen.01.velocity-cmd
@@ -124,7 +112,6 @@ net y1-enable     <= joint.1.amp-enable-out
 net y1-enable     => hm2_7i76e.0.stepgen.01.enable
 
 # ---setup home / limit switch signals---
-
 net home-y     =>  joint.1.home-sw-in
 net y-neg-limit     =>  joint.1.neg-lim-sw-in
 net y-pos-limit     =>  joint.1.pos-lim-sw-in
@@ -152,7 +139,6 @@ net y2-pos-fb        =>  pid.y2.feedback
 net y2-output        <=  pid.y2.output
 
 # Step Gen signals/setup
-
 setp   hm2_7i76e.0.stepgen.02.dirsetup        [JOINT_2]DIRSETUP
 setp   hm2_7i76e.0.stepgen.02.dirhold         [JOINT_2]DIRHOLD
 setp   hm2_7i76e.0.stepgen.02.steplen         [JOINT_2]STEPLEN
@@ -164,8 +150,6 @@ setp   hm2_7i76e.0.stepgen.02.maxaccel         [JOINT_2]STEPGEN_MAXACCEL
 setp   hm2_7i76e.0.stepgen.02.maxvel           [JOINT_2]STEPGEN_MAXVEL
 
 # ---closedloop stepper signals---
-
-
 net y2-pos-cmd    <= joint.2.motor-pos-cmd
 net y2-vel-cmd    <= joint.2.vel-cmd
 net y2-output     <= hm2_7i76e.0.stepgen.02.velocity-cmd
@@ -175,7 +159,6 @@ net y2-enable     <= joint.2.amp-enable-out
 net y2-enable     => hm2_7i76e.0.stepgen.02.enable
 
 # ---setup home / limit switch signals---
-
 net home-y2     =>  joint.2.home-sw-in
 net y2-neg-limit     =>  joint.2.neg-lim-sw-in
 net y2-pos-limit     =>  joint.2.pos-lim-sw-in
@@ -203,7 +186,6 @@ net z-pos-fb        =>  pid.z.feedback
 net z-output        <=  pid.z.output
 
 # Step Gen signals/setup
-
 setp   hm2_7i76e.0.stepgen.03.dirsetup        [JOINT_3]DIRSETUP
 setp   hm2_7i76e.0.stepgen.03.dirhold         [JOINT_3]DIRHOLD
 setp   hm2_7i76e.0.stepgen.03.steplen         [JOINT_3]STEPLEN
@@ -215,7 +197,6 @@ setp   hm2_7i76e.0.stepgen.03.maxaccel         [JOINT_3]STEPGEN_MAXACCEL
 setp   hm2_7i76e.0.stepgen.03.maxvel           [JOINT_3]STEPGEN_MAXVEL
 
 # ---closedloop stepper signals---
-
 net z-pos-cmd    <= joint.3.motor-pos-cmd
 net z-vel-cmd    <= joint.3.vel-cmd
 net z-output     <= hm2_7i76e.0.stepgen.03.velocity-cmd
@@ -225,7 +206,6 @@ net z-enable     <= joint.3.amp-enable-out
 net z-enable     => hm2_7i76e.0.stepgen.03.enable
 
 # ---setup home / limit switch signals---
-
 net home-z     =>  joint.3.home-sw-in
 net z-neg-limit     =>  joint.3.neg-lim-sw-in
 net z-pos-limit     =>  joint.3.pos-lim-sw-in
