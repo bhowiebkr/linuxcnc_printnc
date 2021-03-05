@@ -67,4 +67,5 @@ run_from_line = no_run
 unlock_way = use
 show_preview_on_offset = False
 use_keyboard_shortcuts = False
+tool_in_spindle = 0
 
